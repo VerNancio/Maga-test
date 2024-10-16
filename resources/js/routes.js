@@ -1,4 +1,4 @@
-const URI = "http://localhost:80/meu_projeto/";
+const URI = "http://localhost:80/magatest/";
 
 const routes = {
     'getUserById': 'user/', 

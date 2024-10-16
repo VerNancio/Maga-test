@@ -4,12 +4,11 @@ Options -Indexes
 # Ativar engine de reescrita de URLs
 RewriteEngine On 
 
-# Libera o diretório resources para acesso direto sem redirecionamento
-RewriteCond %{REQUEST_URI} ^/meu_projeto/scripts/ [NC]
-RewriteCond %{REQUEST_URI} ^/meu_projeto/resources/ [NC]
+# Libera o diretório resources e scripts para acesso direto
+RewriteCond %{REQUEST_URI} ^/magatest/(scripts|resources)/ [NC]
 RewriteRule ^ - [L]
 
-# Continuar com as regras de reescrita para outras requisições
+# Redirecionar todas as requisições para o index.php se não for um arquivo ou diretório
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f 
-RewriteRule ^(.*)$ index.php?url=$1 [QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]

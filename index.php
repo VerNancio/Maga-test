@@ -38,6 +38,7 @@ function run() {
 
     $routeFound = false;
     
+
     // Iteração sobre todas as possiveis rotas
     foreach ($routes as $path => $controllerAndmethod) {
         
@@ -50,9 +51,8 @@ function run() {
       // Se rota foi encontrada dado o regex
       if (preg_match($pattern, $url, $matches)) {
 
-        $routeFound = true;
-
         array_shift($matches);
+
 
         // Separa a classe do metodo
         [$currentController, $method] = explode('->', $controllerAndmethod);
@@ -69,12 +69,10 @@ function run() {
         } else {
             echo "Classe $fullClassName não encontrada!";
         }
-
-            
-    //   echo json_encode(['aaa' => $matches]);
-    //   return ;
         
         $controller->$method($matches);
+
+        $routeFound = true;
       }
     }
 

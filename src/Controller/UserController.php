@@ -22,6 +22,11 @@ class UserController {
             extract($params);
         }
 
+        if($name == "" || strlen($name) > 100) {
+            echo json_encode(['msg'=>'Nome de usuário não informado']);
+            return;
+        }
+
         if (!is_cpf_valid($cpf)) {
             echo json_encode(['msg'=>'Cpf de usuário inválido']);
             return;

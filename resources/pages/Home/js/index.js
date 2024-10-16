@@ -32,12 +32,14 @@ window.onload = () => {
 
             e.preventDefault();
 
-            if (User.delete(id) == "Usuário deletado") {
+            if (User.delete(id)) {
                 alert('User deletado');
                 window.location.reload();
             } else {
-                alert("Usuário já deletado ou não existe.")
+                alert("Usuário já deletado ou não existe.");
+                window.location.reload();
             }
+
         });
     })
     

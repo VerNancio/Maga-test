@@ -67,7 +67,7 @@ window.onload = () => {
 
             e.preventDefault();
 
-            if (Contact.delete(id) == "Contato deletado com sucesso") {
+            if (Contact.delete(id)) {
                 alert('User deletado');
                 window.location.reload();
             } 

@@ -58,6 +58,7 @@ class User {
         axios.post(URL, data)
             .then(response => {
                 console.log(response.data)
+                alert(response.data.msg);
                 return response.data;
             })
             .catch(error => {
@@ -65,8 +66,8 @@ class User {
                 return false;
             });
 
-        alert("Usuário criado com sucesso");   
-        // window.location.reload();
+        // alert("Usuário criado com sucesso");   
+        window.location.reload();
     }
 
     static edit(id, name) {
@@ -98,10 +99,6 @@ class User {
 
         const URL = URI + routes['deleteUser'] + id;
 
-        alert(URL)
-
-        let msg;
-        
         axios.delete(URL)
             .then(response => {
                 console.log(response.data)
@@ -110,8 +107,7 @@ class User {
                 console.error('Erro ao fazer a requisição:', error);
             });
 
-        window.location.reload()
-        return msg;
+        window.location.reload();
     }
 }
 
